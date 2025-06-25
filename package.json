@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/JoacoDarquier/TP2-Agri-Data-Api#readme",
   "dependencies": {
+    "@supabase/supabase-js": "^2.50.1",
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",

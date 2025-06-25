@@ -5,7 +5,7 @@ const observationSchema = new mongoose.Schema({
     observedAt:{ type: Date, default: Date.now },
     kind: { type: String, enum: ['Soil','Pest','Weather','Image','Note'], required: true },
     data: { type: mongoose.Schema.Types.Mixed, required: true },
-    images: [{ url: String, key: String }], 
+    images: [{ type: String }], 
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'Producer' }
 }, { timestamps: true});
 
