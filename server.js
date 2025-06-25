@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import connectDB from './src/config/db.js';
 import producerRoutes from './src/routes/producerRoutes.js';
 import authRoutes from './src/routes/authRoutes.js';
+import fieldsRoutes from './src/routes/fieldsRoutes.js';
 import cookieParser from 'cookie-parser';
 
 dotenv.config();
@@ -15,6 +16,7 @@ app.use(cookieParser())
 
 app.use('/', authRoutes)
 app.use('/', producerRoutes);
+app.use('/', fieldsRoutes);
 
 
 app.get('/', (req, res) => {
