@@ -5,6 +5,7 @@ import producerRoutes from './src/routes/producerRoutes.js';
 import authRoutes from './src/routes/authRoutes.js';
 import fieldsRoutes from './src/routes/fieldsRoutes.js';
 import observationRoutes from './src/routes/observationRoutes.js';
+import taskRoutes from './src/routes/taskRoutes.js';
 import cookieParser from 'cookie-parser';
 
 dotenv.config();
@@ -19,7 +20,7 @@ app.use('/', authRoutes)
 app.use('/', producerRoutes);
 app.use('/', fieldsRoutes);
 app.use('/', observationRoutes);
-
+app.use('/', taskRoutes);
 
 app.get('/', (req, res) => {
     res.json({ message: 'API funcionando correctamente' });
