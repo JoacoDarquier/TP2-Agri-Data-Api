@@ -1,16 +1,17 @@
 import express from 'express';
-import { createObservation, addImagesToObservation, getAllObservations, getObservationsByField } from '../controllers/observationController.js';
+import { createObservation, editObservation, deleteObservation, getObservationsByField } from '../controllers/observationController.js';
 import { authenticate } from '../middlewares/authMiddlewares.js';
-import { uploadMultiple, handleMulterError } from '../middlewares/uploadMiddleware.js';
+import { allowUpload, allowMultipleUpload } from '../middlewares/uploadMiddleware.js';
 
 const router = express.Router();
 
-router.post('/api/observations', authenticate, uploadMultiple, handleMulterError, createObservation);
+router.post('/api/observations', authenticate, allowMultipleUpload, createObservation);
 
-router.post('/api/observations/:observationId/images', authenticate, uploadMultiple, handleMulterError, addImagesToObservation);
+router.put('/api/observations/:observationId', authenticate, allowMultipleUpload, editObservation);
 
-router.get('/api/observations', getAllObservations);
+router.delete('/api/observations/:observationId', authenticate, deleteObservation);
 
-router.get('/api/observations/field/:fieldId', getObservationsByField);
+router.get('/api/observations/field/:fieldId', authenticate, getObservationsByField);
+
 
 export default router;

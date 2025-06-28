@@ -4,4 +4,4 @@ node_modules/
 # Variables de entorno
 .env
 
-src/middlewares/uploadMiddleware.js
+# src/middlewares/uploadMiddleware.js
